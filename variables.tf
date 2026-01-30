@@ -11,11 +11,11 @@ variable "instance_type" {
 }
 
 variable "vpc_security_group_ids" {
-  default = [ "sg-09663d91a4fca31c9" ]
+  default = [ "sg-0325e8d801d32754b" ]
 }
 
 variable "zone_id" {
-  default = "Z057881017RC0RRKVUX8E"
+  default = "Z02346551HC8AOL8EM1LW"
 }
 
 variable "components" {
