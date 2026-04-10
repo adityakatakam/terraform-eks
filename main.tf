@@ -27,6 +27,13 @@ resource "aws_eks_node_group" "main" {
     max_unavailable = 1
   }
 }
+resource "null_resource" "kubeconfig" {
+  depends_on = [aws_eks_node_group.main]
+
+  provisioner "local-exec" {
+    command = "aws eks update-kubeconfig --name ${aws_eks_cluster.main.name}"
+  }
+}
 
 resource "aws_eks_access_entry" "workstation" {
   cluster_name      = aws_eks_cluster.main.name
