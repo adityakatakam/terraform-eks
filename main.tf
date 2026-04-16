@@ -45,3 +45,11 @@ resource "aws_eks_access_policy_association" "workstation" {
   }
 }
 
+resource "null_resource" "kubeconfig" {
+  depends_on = [aws_eks_node_group.main]
+
+  provisioner "local-exec" {
+    command = "aws eks update-kubeconfig --name dev"
+  }
+}
+
